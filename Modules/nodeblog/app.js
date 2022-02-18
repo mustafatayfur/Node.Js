@@ -5,6 +5,8 @@ const app = express()
 const port = 3000
 const hostname = '127.0.0.1'
 
+app.use(express.static('public'))
+
 app.get('/', (req, res)=>{
     res.sendFile(path.resolve(__dirname,'index.html'))
 })
@@ -15,14 +17,14 @@ app.get('/contact', (req, res)=>{
     res.sendFile(path.resolve(__dirname,'contact.html'))
 })
 
-app.get('/users/:userID/movies/:moviesID', (req, res)=>{
-    res.send(
-        `
-        <h1>Kullanıcı adı: ${req.params.userID}</h1>
-        <h1>Film adı: ${req.params.moviesID}</h1>
-        `
-    )
-})
+// app.get('/users/:userID/movies/:moviesID', (req, res)=>{
+//     res.send(
+//         `
+//         <h1>Kullanıcı adı: ${req.params.userID}</h1>
+//         <h1>Film adı: ${req.params.moviesID}</h1>
+//         `
+//     )
+// })
 
 
 
